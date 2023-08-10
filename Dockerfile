@@ -13,6 +13,14 @@ RUN pip3 install --upgrade pip
 ADD requirements.txt requirements.txt
 RUN pip3 install -r requirements.txt
 
+# Set HuggingFace token
+ARG HUGGINGFACE_TOKEN=""
+ENV HUGGINGFACE_TOKEN=${HUGGINGFACE_TOKEN}
+
+# Set HuggingFace model id
+ARG MODEL_ID="stabilityai/stable-diffusion-2-1-base"
+ENV MODEL_ID=${MODEL_ID}
+
 # Add your model weight files 
 # (in this case we have a python script)
 ADD download.py .
