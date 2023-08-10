@@ -4,14 +4,14 @@ import torch
 from diffusers import DiffusionPipeline
 
 MODEL_ID = os.environ.get("MODEL_ID")
-HUGGINGFACE_TOKEN = os.environ.get("HUGGINGFACE_TOKEN")
+HF_AUTH_TOKEN = os.environ.get("HF_AUTH_TOKEN")
 
 
 def download_model():
     # do a dry run of loading the huggingface model, which will download weights
     base = DiffusionPipeline.from_pretrained(
         MODEL_ID,
-        use_auth_token=HUGGINGFACE_TOKEN,
+        use_auth_token=HF_AUTH_TOKEN,
         torch_dtype=torch.float16,
         use_safetensors=True,
         variant="fp16"

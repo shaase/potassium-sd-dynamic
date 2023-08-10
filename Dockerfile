@@ -14,8 +14,8 @@ ADD requirements.txt requirements.txt
 RUN pip3 install -r requirements.txt
 
 # Set HuggingFace token
-ARG HUGGINGFACE_TOKEN=""
-ENV HUGGINGFACE_TOKEN=${HUGGINGFACE_TOKEN}
+ARG HF_AUTH_TOKEN=""
+ENV HF_AUTH_TOKEN=${HF_AUTH_TOKEN}
 
 # Set HuggingFace model id
 ARG MODEL_ID="stabilityai/stable-diffusion-2-1-base"
